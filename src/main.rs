@@ -1,3 +1,6 @@
+mod process;
+
 fn main() {
-    println!("Hello, world!");
+    process::syscalls::main();
 }
+
