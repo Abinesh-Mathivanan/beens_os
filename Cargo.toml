@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-windows-sys = { version = "0.52", features = ["Win32_System_SystemInformation", "Win32_System_Threading", "Win32_Foundation", "Win32_System_Memory", "Win32_Storage_FileSystem", "Win32_System_Diagnostics_ToolHelp"] }
+windows-sys = { version = "0.52", features = ["Win32_System_SystemInformation", "Win32_System_Threading", "Win32_Foundation", "Win32_System_Memory", "Win32_Storage_FileSystem", "Win32_System_Diagnostics_ToolHelp",
+"Win32_System_ProcessStatus"] }
 
 
