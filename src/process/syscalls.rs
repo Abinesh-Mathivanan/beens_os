@@ -4,6 +4,7 @@ use windows_sys::Win32::System::Diagnostics::ToolHelp::{
     CreateToolhelp32Snapshot, Process32FirstW, Process32NextW, TH32CS_SNAPPROCESS, PROCESSENTRY32W,
 };
 use windows_sys::Win32::Foundation::{INVALID_HANDLE_VALUE, CloseHandle, GetLastError};
+use windows_sys::Win32::System::SystemInformation::{GetSystemInfo, SYSTEM_INFO};
 use windows_sys::Win32::System::Threading::{GetCurrentThreadId, OpenProcess, PROCESS_QUERY_LIMITED_INFORMATION, GetCurrentProcessId};
 use windows_sys::Win32::System::ProcessStatus::K32GetProcessImageFileNameW;
 
@@ -68,6 +69,15 @@ pub fn main() {
     // simple testing the process id
     let current_id = unsafe { GetCurrentThreadId() };
     println!("current id of the process: {}", current_id);
+
+
+    // get system info 
+    let mut system_info: SYSTEM_INFO = unsafe { std::mem::zeroed() };
+    unsafe {GetSystemInfo(&mut system_info)};
+    println!("architecture: {}", system_info.dwProcessorType);
+    println!("page size: {}", system_info.dwPageSize);
+    println!("no of processors {}", system_info.dwNumberOfProcessors);
+
 }
 
 /*
