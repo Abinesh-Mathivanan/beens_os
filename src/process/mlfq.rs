@@ -1,3 +1,4 @@
+extern crate alloc;
 use alloc::collections::VecDeque;
 use alloc::vec::Vec;
 
